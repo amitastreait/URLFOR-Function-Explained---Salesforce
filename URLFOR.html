@@ -1,0 +1,24 @@
+<apex:page standardController="Account" >
+    <!-- {!URLFOR(target, [id], [parameters], [no override])}  -->
+    <!-- Below is the description of all the attributes in detail:
+		 Target:	Action, or any static resource for image or Javascript.
+		 Id:	Name that is Of String or record ID (depends on the "target").
+		 parameters:	Additional parameters passed. Format: [parameters1="value1", parameters2="value2", parameters3 = value3]
+		 no override:	A Boolean flag. Set to true if to display a standard Salesforce page 
+    	 regardless of whether you have defined an override for it elsewhere. (default false) 
+		 [nooverride=1] OR [nooverride=0] OR [nooverride=true] OR [nooverride=false]
+    -->
+    <apex:image url="{!URLFOR($Resource.redflag)}" height="50" width="50" />
+    <apex:form >
+        <apex:outputLink value="{! URLFOR($Action.Account.Edit, Account.Id, [nooverride=1])}" target="_blank"
+                         styleClass="btn"> Edit </apex:outputLink><br/><br/>
+        <apex:outputLink value="{! URLFOR($Action.Account.View, Account.Id)}" target="_blank"
+                         styleClass="btn"> View </apex:outputLink><br/><br/>
+        <apex:outputLink value="{! URLFOR($Action.Account.New)}" target="_blank"
+                         styleClass="btn"> New </apex:outputLink><br/><br/>
+        <apex:outputLink value="{! URLFOR($Action.Account.Delete, Account.Id)}"
+                         styleClass="btn" target="_blank"> Delete </apex:outputLink><br/><br/>
+        <apex:outputLink value="{! URLFOR($Action.Account.Tab,$ObjectType.Account)}" styleClass="btn"
+                         target="_blank"> ListView </apex:outputLink><br/><br/>
+    </apex:form>
+</apex:page>
